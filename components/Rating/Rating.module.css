@@ -1,7 +1,11 @@
-.svg {
+.filled {
   fill: var(--primary);
 }
 
 .mr5 {
   margin-right: 5px;
+}
+
+.isEditable {
+  cursor: pointer;
 }
