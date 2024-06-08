@@ -3,11 +3,12 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import React, { useState } from 'react';
 import { Button, Rating } from "../components";
+import { withLayout } from "@/layout/Layout";
 
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+function Home() {
   const [rating, setRating] = useState<number>(4);
   console.log(rating)
   return (
@@ -17,3 +18,5 @@ export default function Home() {
     </>
   );
 }
+
+export default withLayout(Home);
