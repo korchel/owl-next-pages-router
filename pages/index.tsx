@@ -12,15 +12,13 @@ import { MenuItem } from "@/interfaces/menu.interface";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const Home: React.FC<HomeProps> = ({ menu } ) => {
+const Home: React.FC<HomeProps> = () => {
   const [rating, setRating] = useState<number>(4);
   return (
     <>
       <Button variant="primary">boom</Button>
       <Rating rating={rating} isEditable={true} setRating={setRating} />
-      <ul>
-        {menu.map((item) => <li key={ item._id.secondCategory}>{item._id.secondCategory}</li>)}
-      </ul>
+
 
     </>
   );

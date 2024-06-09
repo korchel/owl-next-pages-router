@@ -4,6 +4,7 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import { FunctionComponent } from "react";
 import styles from './Layout.module.css';
+import { IMenuContext, MenuContextProvider } from "@/context/menu.context";
 
 const Layout = ({ children, ...props }: LayoutProps) => {
   return (
@@ -18,12 +19,15 @@ const Layout = ({ children, ...props }: LayoutProps) => {
   );
 };
 
-export const withLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
+export const withLayout = <T extends Record<string, unknown> & IMenuContext>(Component: FunctionComponent<T>) => {
   const WithLayoutComponent = (props: T): JSX.Element => {
     return (
-      <Layout>
-        <Component {...props} />
-      </Layout>
+      <MenuContextProvider menu={props.menu} firstCategory={props.firstCategory}>
+        <Layout>
+          <Component {...props} />
+        </Layout>
+      </MenuContextProvider>
+
     );
   };
   return WithLayoutComponent;
