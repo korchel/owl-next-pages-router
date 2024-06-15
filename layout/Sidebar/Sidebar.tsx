@@ -8,7 +8,7 @@ import Menu from '../Menu/Menu';
 const Sidebar = ({className, ...props}: SidebarProps) => {
   return (
     <div className={cn(className, styles.sidebar)} {...props}>
-      <Logo className={styles.logo} />
+      <Logo />
       sidebar
       <Menu />
     </div>

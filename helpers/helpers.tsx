@@ -32,3 +32,5 @@ export const firstLevelMenu: FirstLevelMenuItem[] = [
     id: TopLevelCategory.Products,
   },
 ];
+
+export const priceToRu = (price: number) => new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }).format(price)
