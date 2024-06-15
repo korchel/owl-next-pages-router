@@ -16,10 +16,6 @@ const Home: React.FC<HomeProps> = () => {
   const [rating, setRating] = useState<number>(4);
   return (
     <>
-      <Button variant="primary">boom</Button>
-      <Rating rating={rating} isEditable={true} setRating={setRating} />
-
-
     </>
   );
 }

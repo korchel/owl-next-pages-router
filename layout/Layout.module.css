@@ -20,6 +20,10 @@
   grid-area: sidebar;
 }
 
+.body {
+  grid-area: body;
+}
+
 .footer {
   grid-area: footer;
 }
