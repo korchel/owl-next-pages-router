@@ -1,0 +1,64 @@
+import cn from 'classnames';
+
+import { ProductProps } from "./Product.props";
+import styles from './Product.module.css';
+import { Card } from '../Card/Card';
+import { Rating } from '../Rating/Rating';
+import { Tag } from '../Tag/Tag';
+import { Button } from '../Button/Button';
+import { priceToRu } from '@/helpers/helpers';
+
+export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
+  return (
+    <Card
+      className={cn(styles.product, className)}
+      {...props}
+      color="white"
+    >
+      <div className={styles.logo}>
+        <img src={product.image} alt={product.title} />
+      </div>
+      <div className={styles.title}>{product.title}</div>
+      <div className={styles.price}>
+        {priceToRu(product.price)}
+        {product.oldPrice && <Tag color="green">{priceToRu(product.price - product.oldPrice)}</Tag>}
+      </div>
+      <div className={styles.credit}>{priceToRu(product.credit)}/<span className={styles.month}>мес.</span></div>
+      <div className={styles.rating}><Rating rating={product.reviewAvg ?? product.initialRating} /></div>
+      <div className={styles.tags}>{product.categories.map((category) => (
+          <Tag key={category}>{category}</Tag>
+        ))}
+      </div>
+      <div className={styles.priceTitle}>цена</div>
+      <div className={styles.creditTitle}>кредит</div>
+      <div className={styles.rateTitle}>{product.reviewCount} отзывов</div>
+      <div className={styles.description}>{product.description} отзывов</div>
+      <div className={styles.hr} ><hr/></div>
+      
+      <div className={styles.feature}>fichi</div>
+      <div className={styles.advBlock}>
+        <div>
+          <div>
+            advantages
+          </div>
+          <div>
+            {product.advantages}
+          </div>
+        </div>
+        <div>
+          <div>
+            disadvantages
+          </div>
+          <div>
+            {product.disadvantages}
+          </div>
+        </div>
+      </div>
+      <div className={styles.hr} ><hr/></div>
+      <div className={styles.actions}>
+        <Button variant="primary">Узнать подробнее</Button>
+        <Button variant="ghost" arrow="right">Читать отзывы</Button>
+      </div>
+    </Card>
+  );
+};
