@@ -4,7 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import React, { useState } from 'react';
-import { Button, Rating } from "../components";
+import { Button, Input, Rating, TextArea } from "../components";
 import { withLayout } from "@/layout/Layout";
 import { GetStaticProps } from "next";
 import { MenuItem } from "@/interfaces/menu.interface";
@@ -16,6 +16,8 @@ const Home: React.FC<HomeProps> = () => {
   const [rating, setRating] = useState<number>(4);
   return (
     <>
+      <Input placeholder="ghj" />
+      <TextArea placeholder="ghj" />
     </>
   );
 }
