@@ -6,7 +6,7 @@ import { Card } from '../Card/Card';
 import { Rating } from '../Rating/Rating';
 import { Tag } from '../Tag/Tag';
 import { Button } from '../Button/Button';
-import { priceToRu } from '@/helpers/helpers';
+import { getDeclination, priceToRu } from '@/helpers/helpers';
 import { Divider } from '../Divider/Divider';
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
@@ -32,10 +32,18 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
       </div>
       <div className={styles.priceTitle}>цена</div>
       <div className={styles.creditTitle}>кредит</div>
-      <div className={styles.rateTitle}>{product.reviewCount} отзывов</div>
+      <div className={styles.rateTitle}>{product.reviewCount} {getDeclination(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</div>
       <Divider className={styles.hr} />
       <div className={styles.description}>{product.description}</div>
-      <div className={styles.feature}>fichi</div>
+      <div className={styles.features}>
+        {product.characteristics.map((item) => (
+          <div className={styles.feature} key={item.name}>
+            <span className={styles.featureName}>{item.name}</span>
+            <span className={styles.dots}></span>
+            <span>{item.value}</span>
+          </div>
+        ))}
+      </div>
       <div className={styles.advBlock}>
         {product.advantages && <div className={styles.advantages}>
           <div className={styles.advTitle}>Преимущества</div>

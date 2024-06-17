@@ -33,4 +33,15 @@ export const firstLevelMenu: FirstLevelMenuItem[] = [
   },
 ];
 
-export const priceToRu = (price: number) => new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }).format(price)
+export const priceToRu = (price: number) => new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }).format(price);
+
+export const getDeclination = (number: number, words: [string, string, string]): string => {
+	const cases = [2, 0, 1, 1, 1, 2];
+  if ((number % 100 > 4) && (number % 100 < 20)) {
+    return words[2];
+  }
+  if (number % 10 < 5) {
+    return words[cases[number % 10]];
+  }
+  return words[cases[5]];
+};

@@ -36,7 +36,7 @@
   gap: 20px;
 }
 
-.feature {
+.features {
   grid-column: start / middle;
 }
 
@@ -100,5 +100,24 @@
 
 .advTitle {
   font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 10px;
+  padding-right: 60px;
+  line-height: 32px;
+  font-size: 16px;
+}
+
+.featureName {
+  font-weight: 700;
+}
+
+.dots {
+  border-bottom: 1px dashed var(--gray-light);
   margin-bottom: 5px;
 }
