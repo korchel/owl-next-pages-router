@@ -8,6 +8,7 @@ import { Tag } from '../Tag/Tag';
 import { Button } from '../Button/Button';
 import { getDeclination, priceToRu } from '@/helpers/helpers';
 import { Divider } from '../Divider/Divider';
+import Image from 'next/image';
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
   return (
@@ -17,7 +18,13 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
       color="white"
     >
       <div className={styles.logo}>
-        <img src={product.image} alt={product.title} />
+        <Image
+          loader={() => product.image}
+          src={product.image}
+          alt={product.title}
+          width={70}
+          height={70}
+        />
       </div>
       <div className={styles.title}>{product.title}</div>
       <div className={styles.price}>
@@ -54,7 +61,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
           <div>{product.disadvantages}</div>
         </div>}
       </div>
-      <Divider className={styles.hr} />
+      <Divider className={cn(styles.hr, styles.hr2)} />
       <div className={styles.actions}>
         <Button variant="primary">Узнать подробнее</Button>
         <Button variant="ghost" arrow="right">Читать отзывы</Button>
