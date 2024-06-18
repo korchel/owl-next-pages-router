@@ -3,7 +3,7 @@
   grid-template-columns: 70px 30px calc(50% - 100px) 1fr auto 40px auto 40px auto;
   grid-template-areas: 
   "logo        .           title       .           price       .           credit      .           rating"
-  "logo        .           tags        .           priceTitle  .           creditTite  .           rateTitle"
+  "logo        .           tags        .           priceTitle  .           creditTitle  .          rateTitle"
   "hr1         hr1         hr1         hr1         hr1         hr1         hr1         hr1         hr1"
   "description description description description description description description description description"
   "features    features    features    advBlock    advBlock    advBlock    advBlock    advBlock    advBlock"
@@ -33,14 +33,18 @@
 
 .price {
   grid-area: price;
+  white-space: nowrap;
 }
 
 .credit {
   grid-area: credit;
+  white-space: nowrap;
 }
 
 .rating {
   grid-area: rating;
+  align-self: end;
+  white-space: nowrap;
 }
 
 .priceTitle {
@@ -154,14 +158,13 @@
 
 @media screen and (max-width: 1320px) {
   .product {
-    display: grid;
     grid-template-columns: 70px 30px auto 40px auto 40px auto 40px 1fr;
     grid-template-areas: 
-    "logo        . title title title title title" 
+    "logo        .           title       title       title       title       title" 
     "logo        .           tags        tags        tags        tags        tags" 
     "price       price       price       .           credit      .           rating"
     "priceTitle  priceTitle  priceTitle  .           creditTitle .           rateTitle"
-    "hr          hr          hr          hr          hr          hr          hr"
+    "hr1         hr1         hr1         hr1         hr1         hr1         hr1"
     "description description description description description description description"
     "features    features    features    features    features    features    features"
     "advBlock    advBlock    advBlock    advBlock    advBlock    advBlock    advBlock"
@@ -176,5 +179,59 @@
   }
   .features {
     margin-bottom: 20px;
+  }
+  .feature {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .product {
+    grid-template-columns: 70px 30px 1fr;
+    grid-template-areas: 
+    "logo        .           title"
+    "logo        .           tags"
+    "priceTitle  priceTitle  price"
+    "creditTitle creditTitle credit"
+    "rateTitle   rateTitle   rating"
+    "hr1         hr1         hr1"
+    "description description description"
+    "features    features    features"
+    "advBlock    advBlock    advBlock"
+    "hr2         hr2         hr2"
+    "actions     actions     actions";
+  }
+  .price {
+    margin-bottom: 10px;
+  }
+  
+  .credit {
+    margin-bottom: 10px;
+  }
+  
+  .rating {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "logo"
+    "title"
+    "tags"
+    "price"
+    "priceTitle"
+    "credit"
+    "creditTitle"
+    "rating"
+    "rateTitle"
+    "hr1"
+    "description"
+    "features"
+    "advBlock"
+    "hr2"
+    "actions";
   }
 }
