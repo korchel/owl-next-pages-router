@@ -1,0 +1,54 @@
+.review {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  grid-template-areas:
+    "icon        title       date        rating"
+    "description description description description";
+  align-items: center;
+  gap: 10px;
+
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.title {
+  grid-area: title;
+}
+
+.description {
+  grid-area: description;
+}
+
+.rating {
+  grid-area: rating;
+}
+
+.date {
+  grid-area: date;
+  margin-right: 10px;
+}
+
+.name {
+  font-weight: 700;
+}
+
+@media screen and (max-width: 840px) {
+  .review {
+    grid-template-columns: auto auto 1fr;
+    grid-template-areas:
+    "icon        title       title"
+    "date        date        rating"
+    "description description description";
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .review {
+    grid-template-columns: auto auto 1fr;
+    grid-template-areas:
+    "icon        title       title"
+    "date        date        date"
+    "rating      rating      rating"
+    "description description description";
+  }
+}

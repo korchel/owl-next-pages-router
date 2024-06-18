@@ -42,7 +42,7 @@
   margin: 0;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 860px) {
   .title {
     grid-template-columns: auto 1fr;
   }
