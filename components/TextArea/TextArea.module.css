@@ -1,5 +1,10 @@
-.input {
+.textareaContainer {
+  position: relative;
+}
+
+.textArea {
   padding: 7px 15px;
+  width: 100%;
   border: none;
   border-radius: 5px;
   outline-color: var(--primary);
@@ -11,9 +16,21 @@
   font-family: var(--font-family);
   font-size: 16px;
 
-  line-height: 21.79px;
+  line-height: 22px;
 }
 
-.input::placeholder {
+.textArea::placeholder {
   color: var(--gray);
+}
+
+.error {
+  border: 1px solid var(--red);
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+
+  color: var(--red);
 }
