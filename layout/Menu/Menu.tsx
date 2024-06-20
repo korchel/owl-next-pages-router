@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import Link from 'next/link';
 import { useContext } from 'react';
+import { motion } from 'framer-motion';
 
 import { FirstLevelMenuItem, PageItem } from "@/interfaces/menu.interface";
 
@@ -14,6 +15,19 @@ import { firstLevelMenu } from '@/helpers/helpers';
 const Menu = () => {
   const { menu, setMenu, firstCategory } = useContext(MenuContext);
   const router = useRouter();
+
+  const variants = {
+    visible: {
+      marginBottom: 20,
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.3,
+      },
+    },
+    hidden: {
+      marginBottom: 0,
+    },
+  };
 
   const openSecondLevel = (secondCategory: string) => {
     setMenu && setMenu(menu.map((item) => {
@@ -45,9 +59,15 @@ const Menu = () => {
     return (
       <div key={item._id.secondCategory}>
         <div className={styles.secondLevel} onClick={() => openSecondLevel(item._id.secondCategory)}>{item._id.secondCategory}</div>
-        <div className={cn(styles.secondLevelBlock, { [styles.secondLevelBlockOpen]: item.isOpen })}>
+        <motion.div
+          className={cn(styles.secondLevelBlock)}
+          layout
+          initial="hidden"
+          animate={item.isOpen ? 'visible' : 'hidden'}
+          variants={variants}
+        >
           {item.isOpen && buildThirdLevel(item.pages, firstLevelMenuItem.route)}
-        </div>
+        </motion.div>
       </div>
     )
   });
