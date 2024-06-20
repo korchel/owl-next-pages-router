@@ -40,16 +40,27 @@
   margin-left: 15px;
 }
 
-.success {
+.messageBlock {
   position: relative;
-  background: var(--green-light);
   padding: 20px;
   border-radius: 5px;
   margin-top: 20px;
 }
 
+.success {
+  background: var(--green-light);
+}
+
 .successTitle {
   font-weight: 700;
+}
+
+.error {
+  background: var(--red-light);
+}
+
+.error .close path {
+  stroke: var(--red);
 }
 
 .close {
