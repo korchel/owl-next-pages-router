@@ -21,11 +21,22 @@ const Menu = () => {
       marginBottom: 20,
       transition: {
         when: 'beforeChildren',
-        staggerChildren: 0.3,
+        staggerChildren: 0.1,
       },
     },
     hidden: {
       marginBottom: 0,
+    },
+  };
+
+  const childrenVariants = {
+    visible: {
+      opacity: 1,
+      height: 29,
+    },
+    hidden: {
+      opacity: 0,
+      height: 0,
     },
   };
 
@@ -62,7 +73,7 @@ const Menu = () => {
         <motion.div
           className={cn(styles.secondLevelBlock)}
           layout
-          initial="hidden"
+          initial={item.isOpen ? 'visible' : 'hidden'}
           animate={item.isOpen ? 'visible' : 'hidden'}
           variants={variants}
         >
@@ -73,9 +84,14 @@ const Menu = () => {
   });
     
   const buildThirdLevel = (pages: PageItem[], route: string) => pages.map((page) => (
-    <Link href={`/${route}/${page.alias}`} className={cn(styles.thirdLevel, { [styles.thirdLevelActive]: `/${route}/${page.alias}` === router.asPath })} key={page._id}>
-      {page.category}
-    </Link>
+    <motion.div
+      key={page._id}
+      variants={childrenVariants}
+    >
+      <Link href={`/${route}/${page.alias}`} className={cn(styles.thirdLevel, { [styles.thirdLevelActive]: `/${route}/${page.alias}` === router.asPath })} >
+        {page.category}
+      </Link>
+    </motion.div>
   ));
 
   return (

@@ -42,7 +42,7 @@
 }
 
 .secondLevelBlock {
-
+  overflow: hidden;
 }
 
 .thirdLevel {

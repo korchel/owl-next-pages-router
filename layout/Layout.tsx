@@ -5,6 +5,7 @@ import Footer from "./Footer/Footer";
 import { FunctionComponent } from "react";
 import styles from './Layout.module.css';
 import { IMenuContext, MenuContextProvider } from "@/context/menu.context";
+import { UpButton } from "@/components";
 
 const Layout = ({ children, ...props }: LayoutProps) => {
   return (
@@ -15,6 +16,7 @@ const Layout = ({ children, ...props }: LayoutProps) => {
         {children}
       </div>
       <Footer  className={styles.footer}/>
+      <UpButton />
     </div>
   );
 };
