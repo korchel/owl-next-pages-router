@@ -17,8 +17,7 @@ const Home: React.FC<HomeProps> = () => {
   const [rating, setRating] = useState<number>(4);
   return (
     <>
-      <Input placeholder="ghj" />
-      <TextArea placeholder="ghj" />
+
     </>
   );
 }

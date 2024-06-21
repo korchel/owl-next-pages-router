@@ -9,7 +9,7 @@ import { Search } from '@/components/Search/Search';
 
 const Sidebar = ({className, ...props}: SidebarProps) => {
   return (
-    <div className={cn(className, styles.sidebar)} {...props}>
+    <div className={cn(className, styles.sidebarBlock)} {...props}>
       <Logo />
       <Search />
       <Menu />
