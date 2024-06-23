@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.star {
+  display: inline-block;
+}
+
 .filled {
   fill: var(--primary);
 }

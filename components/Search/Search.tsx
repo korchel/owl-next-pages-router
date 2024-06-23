@@ -29,7 +29,7 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
   };
 
   return (
-    <div className={cn(styles.search, className)} {...props}>
+    <form className={cn(styles.search, className)} {...props} role="search">
       <Input
         placeholder="Поиск..."
         value={search}
@@ -39,12 +39,12 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
       />
       <Button
         variant="primary"
-        className={styles.button}
+        className={styles.searchButton}
         onClick={goToSearchPage}
-
+        aria-label="Поиск по сайту"
       >
         <SearchIcon />
       </Button>
-    </div>
+    </form>
   );
 };

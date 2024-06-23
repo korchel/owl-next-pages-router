@@ -10,7 +10,7 @@
   align-items: center;
   font-size: 18px;
   font-weight: 500;
-  line-height: 24.52px;
+
   text-align: left;
 }
 
@@ -38,7 +38,10 @@
 
   font-size: 12px;
   font-weight: 300;
-  line-height: 16.34px;
+
+  border: none;
+  background: none;
+  padding: 0;
 }
 
 .secondLevelBlock {
@@ -52,7 +55,7 @@
 
   font-size: 14px;
   font-weight: 500;
-  line-height: 19.07px;
+  outline-offset: -1px;
 }
 
 .thirdLevelActive:last-child {
@@ -62,3 +65,4 @@
 .thirdLevelActive, .thirdLevel:hover {
   color: var(--primary);
 }
+

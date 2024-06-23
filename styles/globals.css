@@ -19,13 +19,18 @@ a {
 	box-sizing: border-box;
 }
 
-.visualyHidden {
+.visuallyHidden {
 	position: absolute;
 
 	overflow: hidden;
 
 	width: 0;
 	height: 0;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
 }
 
 :root {

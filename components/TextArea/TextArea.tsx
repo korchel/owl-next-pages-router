@@ -8,7 +8,7 @@ import { ForwardedRef, forwardRef } from 'react';
 export const TextArea = forwardRef(({ error, className, ...props }: TextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>): JSX.Element => {
   return (
     <div className={cn(styles.textareaContainer, className)}>
-      <textarea className={cn(styles.textArea, {[styles.error]: error})} {...props} ref={ref} />
+      <textarea role="alert" className={cn(styles.textArea, {[styles.error]: error})} {...props} ref={ref} />
       {error && <span className={styles.errorMessage}>{error.message}</span>}
     </div>
 

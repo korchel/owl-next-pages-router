@@ -5,15 +5,19 @@
   gap: 40px;
 }
 
-.sort span {
+.sort button {
   display: flex;
   align-items: center;
   gap: 8px;
 
   cursor: pointer;
+  border: none;
+  background: none;
+  line-height: 22px;
+  font-size: 16px;
 }
 
-.sort span:not(.active) {
+.sort button:not(.active) {
     display: block;
 }
 
