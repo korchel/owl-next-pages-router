@@ -1,20 +1,13 @@
 import axios from "axios";
+import React from 'react';
 
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import React, { useState } from 'react';
-import { Button, Input, Rating, TextArea } from "../components";
 import { withLayout } from "@/layout/Layout";
 import { GetStaticProps } from "next";
 import { MenuItem } from "@/interfaces/menu.interface";
 import { API } from "@/helpers/api";
 
-
-const inter = Inter({ subsets: ["latin"] });
-
 const Home: React.FC<HomeProps> = () => {
-  const [rating, setRating] = useState<number>(4);
+
   return (
     <>
 

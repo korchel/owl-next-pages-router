@@ -10,11 +10,23 @@ import { ProductModel } from "@/interfaces/product.interface";
 import { firstLevelMenu } from "@/helpers/helpers";
 import { TopPageComponent } from "@/pageComponents";
 import { API } from "@/helpers/api";
+import Head from "next/head";
 
-const TopPage: React.FC<TopPageProps> = ({ firstCategory, menu, page, products } ) => {
+const TopPage: React.FC<TopPageProps> = ({ firstCategory, menu, page, products }) => {
 
-  return <TopPageComponent firstCategory={firstCategory} products={products} page={page} />;
-}
+  return (
+    <>
+      <Head>
+        <title>{page.metaTitle}</title>
+        <meta name="description" content={page.metaDescription} />
+        <meta property="og:title" content={page.metaTitle} />
+        <meta property="og:description" content={page.metaDescription} />
+        <meta property="og:type" content="article" />
+      </Head>
+      <TopPageComponent firstCategory={firstCategory} products={products} page={page} />
+    </>
+  );
+};
 
 export default withLayout(TopPage);
 

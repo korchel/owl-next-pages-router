@@ -1,13 +1,10 @@
 import axios from "axios";
-
-import { Inter } from "next/font/google";
 import React from 'react';
-import { withLayout } from "@/layout/Layout";
 import { GetStaticProps } from "next";
+
+import { withLayout } from "@/layout/Layout";
 import { MenuItem } from "@/interfaces/menu.interface";
 import { API } from "@/helpers/api";
-
-const inter = Inter({ subsets: ["latin"] });
 
 const Search: React.FC<HomeProps> = () => {
 

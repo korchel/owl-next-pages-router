@@ -1,16 +1,12 @@
 import axios from "axios";
-
-import { Inter } from "next/font/google";
 import React from 'react';
-import { withLayout } from "@/layout/Layout";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
+
+import { withLayout } from "@/layout/Layout";
 import { MenuItem } from "@/interfaces/menu.interface";
 import { firstLevelMenu } from "@/helpers/helpers";
 import { ParsedUrlQuery } from "querystring";
 import { API } from "@/helpers/api";
-
-
-const inter = Inter({ subsets: ["latin"] });
 
 const Type: React.FC<TypeProps> = ({ firstCategory }) => {
 
